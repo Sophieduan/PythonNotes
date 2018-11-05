@@ -2,6 +2,7 @@
 //	取整除 - 返回商的整数部分（向下取整)
 
 0. 取整
+
 import math
 #向上取整
         print "math.ceil---"
