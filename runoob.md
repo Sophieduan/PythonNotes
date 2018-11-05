@@ -687,6 +687,15 @@ print(range(10)[::2])  # 输出偶数：[0, 2, 4, 6, 8]
 print(s[6:2:-2]) # 输出'ge'
 s[6:2:1] #''
 
+- 记忆小方法：str.join(元组、列表、字典、字符串) 之后生成的只能是字符串。
+
+所以很多地方很多时候生成了元组、列表、字典后，可以用 join() 来转化为字符串
+list=['1','2','3','4','5']
+print(''.join(list))
+-> 12345
+seq = {'hello':'nihao','good':2,'boy':3,'doiido':4}
+print('-'.join(seq))        #字典只对键进行连接
+-> hello-good-boy-doiido
 
 
 5. 元组 Tuple
