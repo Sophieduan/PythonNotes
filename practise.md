@@ -285,10 +285,59 @@ list_2d = [[0 for col in range(cols)] for row in range(rows)]
 [[0, 0, 0, 0, 0, 3, 5], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 7], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
 
 
-14. 
+14. 编写字典程序
+- 用户添加单词和定义
+- 查找这些单词
+- 如果查不到，请让用户知道
+- 循环
+
+# 字典创建  while开关 字典添加   字典寻找
+dictionary = {}
+flag = 'a'
+pape = 'a'
+off = 'a'
+while flag == 'a' or 'c' :
+    flag = raw_input("添加或查找单词 ?(a/c)")
+    if flag == "a" :                             # 开启
+        word = raw_input("输入单词(key):")
+        defintion = raw_input("输入定义值(value):")
+        dictionary[str(word)] = str(defintion)  # 添加字典
+        print "添加成功!"
+        pape = raw_input("您是否要查找字典?(a/0)")   #read
+        if pape == 'a':
+            print dictionary
+        else :
+            continue
+    elif flag == 'c':
+        check_word = raw_input("要查找的单词:")  # 检索
+        for key in sorted(dictionary.keys()):            # yes
+            if str(check_word) == key:
+                print "该单词存在! " ,key, dictionary[key]
+                break
+            else:                                       # no
+                off = 'b'
+        if off == 'b':
+            print "抱歉，该值不存在！"
+    else:                               # 停止
+        print "error type"
+        break
 
 
-
+15.取最大最小值
+def findMinAndMax(L):
+    if(len(L)==0):
+        print (None,None)
+        return (None,None)
+    else:
+        max = L[0]
+        min = L[0]
+        for n in L:
+            if min>n:
+                min=n
+            if max<n:
+                max=n  
+        print(min,max)
+        return (min,max)
 
 
 
