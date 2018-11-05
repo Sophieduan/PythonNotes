@@ -976,6 +976,7 @@ def sum( arg1, arg2 ):
 sum( 10, 20 );
 print "函数外是全局变量 : ", total
 
+lobals() 和 locals() 函数可被用来返回全局和局部命名空间里的名字。
 
 全局变量想作用于函数内，需加 global: 1、global---将变量定义为全局变量。可以通过定义为全局变量，实现在函数内部改变变量值。 2、一个global语句可以同时定义多个变量，如 global x, y, z。
 globvar = 0
@@ -992,6 +993,142 @@ print_globvar()       # 输出 1，函数内的 globvar 已经是全局变量
 
 
 
+8. 模块
+一个模块只会被导入一次，不管你执行了多少次import。这样可以防止导入模块被一遍又一遍地执行。
+from 语句让你从模块中导入一个指定的部分到当前命名空间中。语法如下：
+
+from fib import fibonacci #它只会将 fib 里的 fibonacci 单个引入到执行这个声明的模块的全局符号表。
+
+
+
+
+9. 文件I/O
+
+- print "Python 是一个非常棒的语言，不是吗？"
+你可以给它传递零个或多个用逗号隔开的表达式
+
+- 内置函数从标准输入读入一行文本
+#raw_input函数 ： raw_input([prompt]) 函数从标准输入读取一个行，并返回一个字符串（去掉结尾的换行符）
+str = raw_input("请输入：")
+print "你输入的内容是: ", str
+-> 请输入：Hello Python！
+你输入的内容是:  Hello Python！
+
+#input([prompt]) 函数和 raw_input([prompt]) 函数基本类似，但是 input 可以接收一个Python表达式作为输入，并将运算结果返回。
+str = input("请输入：")
+print "你输入的内容是: ", str
+-> 请输入：[x*5 for x in range(2,10,2)]
+你输入的内容是:  [10, 20, 30, 40]
+
+
+- 打开和关闭文件
+#open 函数
+file object = open(file_name [, access_mode][, buffering])
+-> file_name：file_name变量是一个包含了你要访问的文件名称的字符串值。
+-> access_mode：access_mode决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。
+-> buffering:如果buffering的值被设为0，就不会有寄存。如果buffering的值取1，访问文件时会寄存行。如果将buffering的值设为大于1的整数，表明了这就是的寄存区的缓冲大小。如果取负值，寄存区的缓冲大小则为系统默认。
+
+#File对象的属性
+
+file.closed	返回true如果文件已被关闭，否则返回false。
+file.mode	返回被打开文件的访问模式。
+file.name	返回文件的名称。
+file.softspace	如果用print输出后，必须跟一个空格符，则返回false。否则返回true
+
+
+#close()方法
+File 对象的 close（）方法刷新缓冲区里任何还没写入的信息，并关闭该文件，这之后便不能再进行写入。
+当一个文件对象的引用被重新指定给另一个文件时，Python 会关闭之前的文件。用 close（）方法关闭文件是一个很好的习惯。
+fileObject.close()
+
+
+#write()方法
+write()方法可将任何字符串写入一个打开的文件。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。
+write()方法不会在字符串的结尾添加换行符('\n')：
+fileObject.write(string)
+
+在这里，被传递的参数是要写入到已打开文件的内容。
+#打开一个文件
+fo = open("foo.txt", "w")
+fo.write( "www.runoob.com!\nVery good site!\n")
+#关闭打开的文件
+fo.close()
+
+上述方法会创建foo.txt文件，并将收到的内容写入该文件，并最终关闭文件。如果你打开这个文件，将看到以下内容
+$ cat foo.txt 
+www.runoob.com!
+Very good site!
+
+
+
+#read()方法
+从一个打开的文件中读取一个字符串。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。
+fileObject.read([count])
+被传递的参数是要从已打开文件中读取的字节计数。该方法从文件的开头开始读入，如果没有传入count，它会尝试尽可能多地读取更多的内容，很可能是直到文件的末尾。
+
+#打开一个文件
+fo = open("foo.txt", "r+")
+str = fo.read(10)
+print "读取的字符串是 : ", str
+#关闭打开的文件
+fo.close()
+->读取的字符串是 :  www.runoob
+
+
+#文件定位
+tell()方法告诉你文件内的当前位置, 换句话说，下一次的读写会发生在文件开头这么多字节之后。
+
+
+
+- Python里的目录
+#mkdir()方法
+当前目录下创建新的目录们。你需要提供一个包含了要创建的目录名称的参数。
+os.mkdir("newdir")
+
+#chdir()方法
+改变当前的目录。chdir()方法需要的一个参数是你想设成当前目录的目录名称。
+import os
+#将当前目录改为"/home/newdir"
+os.chdir("/home/newdir")
+
+#getcwd()方法：
+print os.getcwd()
+
+#rmdir()方法
+rmdir()方法删除目录，目录名称以参数传递。
+在删除这个目录之前，它的所有内容应该先被清除。
+import os
+#删除”/tmp/test”目录
+os.rmdir( "/tmp/test"  )
+
+10. File 方法
+在 write 内容后，直接 read 文件输出会为空，是因为指针已经在内容末尾。
+两种解决方式: 其一，先 close 文件，open 后再读取，其二，可以设置指针回到文件最初后再 read
+import os;
+
+document = open("testfile.txt", "w+");
+print （"文件名: ", document.name）
+document.write("这是我创建的第一个测试文件！\nwelcome!");
+print document.tell();
+#输出当前指针位置
+document.seek(os.SEEK_SET);
+#设置指针回到文件最初
+context = document.read();
+print context;
+document.close();
+
+
+#Python 在 Windows 环境下(在 linux 环境下不存在此问题),在 write 后，直接 read， 会出现乱码问题
+fo = open("foo.txt", "w+")
+fo.write('www.runoob.com')
+print fo.read()
+-> 而是 EOF 的问题，也就是指针的位置问题，当我们以 w+ 开启文件读写模式的时候，由于是 w，所以文件会被清空，也就是文件为空，初始状态指针为 0 ，也就是初始即为 EOF 位置。
+-> 
+fo = open("foo.txt", "w+")
+fo.write('www.runoob.com')
+fo.flush()
+fo.seek(0)#指定指针为止为文件开头
+print fo.read()
 
 
 
@@ -1000,10 +1137,4 @@ print_globvar()       # 输出 1，函数内的 globvar 已经是全局变量
 
 
 
-
-
-
-
-
-
-
+11. 异常处理
