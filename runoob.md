@@ -68,4 +68,19 @@ pass 语句	pass是空语句，是为了保持程序结构的完整性。
 
 
 ##While
+http://www.runoob.com/python/python-while-loop.html
++ continue
++ break
++ 无限循环
++ while...else...
+-> 同行：
+flag = 1
+ 
+while (flag): print 'Given flag is really true!'
+ 
+print "Good bye!"
+
+
+
+
 
