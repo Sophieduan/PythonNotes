@@ -158,6 +158,25 @@ for index, item in enumerate(sequence):
 5 76
 6 89
 
++ for循环只能执行range内两数字相减次数
+for i in range(1,10):     # 只能执行9次,判断循环终止条件是 >= 第二个数字 10 就不再执行 和 其他语言的 i=1 to 10 不同
+    print 'i=:', i
+for i in range(1,1)这样是不会进入循环的
+ 
++ for实现step效果递增
+for i in xrange(0,10,2):
+    print(i)
++ for实现step效果递减
+for i in xrange(10,0,-2):
+    print(i)
+
+
+
+#循环嵌套
+
+
+
+
 
 
 
