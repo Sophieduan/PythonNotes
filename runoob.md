@@ -173,6 +173,70 @@ for i in xrange(10,0,-2):
 
 
 #循环嵌套
+见practise
+
+#break 语句
+break语句，就像在C语言中，打破了最小封闭for或while循环。
+break语句用来终止循环语句，即循环条件没有False条件或者序列还没被完全递归完，也会停止执行循环语句。
+break语句用在while和for循环中。
+如果您使用嵌套循环，break语句将停止执行最深层的循环，并开始执行下一行代码。
+EG：
+for letter in 'Python':     # 第一个实例
+   if letter == 'h':
+      break
+   print '当前字母 :', letter
+  
+var = 10                    # 第二个实例
+while var > 0:              
+   print '当前变量值 :', var
+   var = var -1
+   if var == 5:   # 当变量 var 等于 5 时退出循环
+      break
+ 
+print "Good bye!"
+
+
+#continue 语句
+continue 语句是一个删除的效果，他的存在是为了删除满足循环条件下的某些不需要的成分
+语句用来告诉Python跳过当前循环的剩余语句，然后继续进行下一轮循环。
+continue语句用在while和for循环中。
+EG：
+for letter in 'Python':     # 第一个实例
+   if letter == 'h':
+      continue
+   print '当前字母 :', letter
+ 
+var = 10                    # 第二个实例
+while var > 0:              
+   var = var -1
+   if var == 5:
+      continue
+   print '当前变量值 :', var
+print "Good bye!"
+->
+当前字母 : P
+当前字母 : y
+当前字母 : t
+当前字母 : o
+当前字母 : n
+当前变量值 : 9
+当前变量值 : 8
+当前变量值 : 7
+当前变量值 : 6
+当前变量值 : 4
+当前变量值 : 3
+当前变量值 : 2
+当前变量值 : 1
+当前变量值 : 0
+Good bye!
+
+
+
+
+
+
+
+
 
 
 
