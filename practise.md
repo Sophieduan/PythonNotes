@@ -4,9 +4,9 @@
 0. 取整
 import math
 #向上取整
-print "math.ceil---"
-print "math.ceil(2.3) => ", math.ceil(2.3)
-print "math.ceil(2.6) => ", math.ceil(2.6)
+        print "math.ceil---"
+        print "math.ceil(2.3) => ", math.ceil(2.3)
+        print "math.ceil(2.6) => ", math.ceil(2.6)
 
 #向下取整
 print "\nmath.floor---"
