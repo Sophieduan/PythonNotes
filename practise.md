@@ -275,31 +275,17 @@ while n < 10:
     print(n)
 
 
+13. python 创建二维列表，将需要的参数写入 cols 和 rows 即可
+list_2d = [[0 for col in range(cols)] for row in range(rows)]
+>>> list_2d = [ [0 for i in range(5)] for i in range(5)]
+>>> list_2d[0].append(3)
+>>> list_2d[0].append(5)
+>>> list_2d[2].append(7)
+>>> list_2d
+[[0, 0, 0, 0, 0, 3, 5], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 7], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+14. 
 
 
 
