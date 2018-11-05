@@ -805,6 +805,71 @@ ps：T[4:4] 获取的值为空。
 
 
 
+6.字典(Dictionary)
+字典是另一种可变容器模型，且可存储任意类型对象。
+字典的每个键值 key=>value 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号 {} 中 ,格式如下所示：
+d = {key1 : value1, key2 : value2 }   #键一般是唯一的，如果重复最后的一个键值对会替换前面的，值不需要唯一。
+
+>>>dict = {'a': 1, 'b': 2, 'b': '3'};
+>>> dict['b']
+'3'
+>>> dict
+{'a': 1, 'b': '3'}
+
+#值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组。
+dict2 = { 'abc': 123, 98.6: 37 };
+把相应的键放入熟悉的方括弧，如下实例:
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'};
+print "dict['Name']: ", dict['Name'];
+print "dict['Age']: ", dict['Age'];
+-> 
+dict['Name']:  Zara
+dict['Age']:  7
+
+如果用字典里没有的键访问数据 :
+dict['Alice']: 
+Traceback (most recent call last):
+  File "test.py", line 5, in <module>
+    print "dict['Alice']: ", dict['Alice'];
+KeyError: 'Alice'
+
+#修改字典
+向字典添加新内容的方法是增加新的键/值对，修改或删除已有键/值对如下实例
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'};
+dict['Age'] = 8; # update existing entry
+dict['School'] = "DPS School"; # Add new entry
+print "dict['Age']: ", dict['Age'];
+print "dict['School']: ", dict['School'];
+-> dict['Age']:  8
+-> dict['School']:  DPS School
+
+#删除字典元素
+能删单一的元素也能清空字典，清空只需一项操作。
+显示删除一个字典用del命令，如下实例：
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}; 
+del dict['Name']; # 删除键是'Name'的条目
+dict.clear();     # 清空词典所有条目
+del dict ;        # 删除词典
+print "dict['Age']: ", dict['Age'];
+print "dict['School']: ", dict['School'];
+
+但这会引发一个异常，因为用del后字典不再存在
+
+
+#字典键的特性
+1）不允许同一个键出现两次。创建时如果同一个键被赋值两次，后一个值会被记住
+dict = {'Name': 'Zara', 'Age': 7, 'Name': 'Manni'};
+print "dict['Name']: ", dict['Name'];
+-> dict['Name']:  Manni
+
+2）键必须不可变，所以可以用数字，字符串或元组充当，所以用列表就不行
+
+dict = {['Name']: 'Zara', 'Age': 7};
+print "dict['Name']: ", dict['Name'];
+
+
+
+
 
 
 
