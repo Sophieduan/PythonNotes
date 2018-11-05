@@ -172,6 +172,7 @@ print(trim(str))
 8. 取质数
 list.append()
 #输出2到100的质数
+#方法1
 prime = []
 for num in range(2,100):  # 迭代 2 到 100 之间的数字
    for i in range(2,num): # 根据因子迭代
@@ -180,6 +181,30 @@ for num in range(2,100):  # 迭代 2 到 100 之间的数字
    else:                  # 循环的 else 部分
       prime.append(num)
 print prime
+
+#方法2
+i = 2
+while(i < 100):
+   j = 2
+   while(j <= (i/j)):
+      if not(i%j): break
+      j = j + 1
+   if (j > i/j) : print i, " 是素数"
+   i = i + 1
+print "Good bye!"
+
+#方法三
+num=[];
+i=2
+for i in range(2,100):
+   j=2
+   for j in range(2,i):
+      if(i%j==0):
+         break
+   else:
+      num.append(i)
+print(num)
+
 
 
 9. 打印1-9三角形阵列
@@ -210,9 +235,34 @@ print arays
 -> [1, 2, 3, 4, 6, 8, 9]
 
 
-11.
 
 
+
+
+11.使用嵌套循环实现×字塔的实现
+#*字塔
+i=1
+#j=1
+while i<=9:
+   if i<=5:
+      print ("*"*i)
+
+   elif i<=9 :
+      j=i-2*(i-5)
+      print("*"*j)
+   i+=1
+else :
+   print("")
+->
+*
+**
+***
+****
+*****
+****
+***
+**
+*
 
 
 
