@@ -440,6 +440,172 @@ there
 
 
 5. List
+Python有6个序列的内置类型，但最常见的是列表和元组
+序列都可以进行的操作包括索引，切片，加，乘，检查成员。
+此外，Python已经内置确定序列的长度以及确定最大和最小的元素的方法。
+列表是最常用的Python数据类型，它可以作为一个方括号内的逗号分隔值出现。
+列表的数据项不需要具有相同的类型
+
++ 更新列表
+list = []          ## 空列表
+list.append('Google')   ## 使用 append() 添加元素
+list.append('Runoob')
+print list
+['Google', 'Runoob']
+
+
++ 删除列表元素
+list1 = ['physics', 'chemistry', 1997, 2000]
+print list1
+del list1[2]
+print "After deleting value at index 2 : "
+print list1
+->
+['physics', 'chemistry', 1997, 2000]
+After deleting value at index 2 :
+['physics', 'chemistry', 2000]
+
++ Python列表脚本操作符
+列表对 + 和 * 的操作符与字符串相似。+ 号用于组合列表，* 号用于重复列表。
+
+
++ Python列表截取
+>>>L = ['Google', 'Runoob', 'Taobao']
+>>> L[2]
+'Taobao'
+>>> L[-2]
+'Runoob'
+>>> L[1:]
+['Runoob', 'Taobao']
+>>>
+
++ Python列表函数&方法
+- List len()方法
+list1, list2 = [123, 'xyz', 'zara'], [456, 'abc']
+print "First list length : ", len(list1);
+print "Second list length : ", len(list2);
+First list length :  3
+Second lsit length :  2
+
+- List max()方法
+list1, list2 = [123, 'xyz', 'zara', 'abc'], [456, 700, 200]
+print "Max value element : ", max(list1);
+print "Max value element : ", max(list2);
+Max value element :  zara
+Max value element :  700
+
+- List min()方法
+
+- List list()方法
+元组与列表是非常类似的，区别在于元组的元素值不能修改，元组是放在括号中，列表是放于方括号中。
+list( tup )
+aTuple = (123, 'xyz', 'zara', 'abc');
+aList = list(aTuple)
+print "列表元素 : ", aList
+列表元素 :  [123, 'xyz', 'zara', 'abc']
+
+- List append()方法
+list.append(obj)
+obj -- 添加到列表末尾的对象。
+aList = [123, 'xyz', 'zara', 'abc'];
+aList.append( 2009 );
+print "Updated List : ", aList;
+
+- List count()方法
+返回元素在列表中出现的次数。
+aList = [123, 'xyz', 'zara', 'abc', 123];
+print ("Count for 123 : ", aList.count(123));
+print ("Count for zara : ", aList.count('zara'));
+->
+Count for 123 :  2
+Count for zara :  1
+
+- List extend()方法
+list.extend(seq)
+aList = [123, 'xyz', 'zara', 'abc', 123];
+bList = [2009, 'manni'];
+aList.extend(bList)
+print "Extended List : ", aList ;
+Extended List :  [123, 'xyz', 'zara', 'abc', 123, 2009, 'manni']
+
+
+- List index()方法
+aList = [123, 'xyz', 'zara', 'abc'];
+print "Index for xyz : ", aList.index( 'xyz' ) ;
+print "Index for zara : ", aList.index( 'zara' ) ;
+Index for xyz :  1
+Index for zara :  2
+
+
+- List insert()方法
+list.insert(index, obj)
+aList = [123, 'xyz', 'zara', 'abc']
+aList.insert( 3, 2009)
+print "Final List : ", aList
+->
+Final List : [123, 'xyz', 'zara', 2009, 'abc']
+
+
+- List pop()方法
+pop() 函数用于移除列表中的一个元素（默认最后一个元素），并且返回该元素的值。
+list.pop([index=-1])
+obj -- 可选参数，要移除列表元素的索引值，不能超过列表总长度，默认为 index=-1，删除最后一个列表值。
+list1 = ['Google', 'Runoob', 'Taobao']
+list_pop=list1.pop(1)
+print "删除的项为 :", list_pop
+print "列表现在为 : ", list1
+删除的项为 : Runoob
+列表现在为 :  ['Google', 'Taobao']
+
+
+- List remove()方法
+remove() 函数用于移除列表中某个值的第一个匹配项。
+list.remove(obj)
+aList = [123, 'xyz', 'zara', 'abc', 'xyz'];
+aList.remove('xyz');
+print "List : ", aList;
+aList.remove('abc');
+print "List : ", aList;
+->
+List :  [123, 'zara', 'abc', 'xyz']
+List :  [123, 'zara', 'xyz']
+
+- List reverse()方法
+reverse() 函数用于反向列表中元素。
+list.reverse()
+aList = [123, 'xyz', 'zara', 'abc', 'xyz']
+aList.reverse()
+print ("List : ", aList)
+-> 
+List :  ['xyz', 'abc', 'zara', 'xyz', 123]
+
+
+- List sort()方法
+sort() 函数用于对原列表进行排序，如果指定参数，则使用比较函数指定的比较函数。
+list.sort(cmp=None, key=None, reverse=False)
+cmp -- 可选参数, 如果指定了该参数会使用该参数的方法进行排序。
+key -- 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序。
+reverse -- 排序规则，reverse = True 降序， reverse = False 升序（默认）。
+EG:
+aList = [123, 'Google', 'Runoob', 'Taobao', 'Facebook'];
+aList.sort();
+print "List : ", aList
+->List :  [123, 'Facebook', 'Google', 'Runoob', 'Taobao']
+
+vowels = ['e', 'a', 'u', 'o', 'i']
+vowels.sort(reverse=True)
+print '降序输出:', vowels
+降序输出: ['u', 'o', 'i', 'e', 'a']
+
+指定列表中的元素排序来输出列表：
+def takeSecond(elem):
+    return elem[1]
+random = [(2, 2), (3, 4), (4, 1), (1, 3)]
+random.sort(key=takeSecond) #指定第二个元素排序
+print '排序列表：', random
+排序列表：[(4, 1), (2, 2), (1, 3), (3, 4)]
+
+
 
 
 
