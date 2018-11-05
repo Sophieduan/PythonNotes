@@ -141,9 +141,22 @@ for num in range(10,20):  # 迭代 10 到 20 之间的数字
 18 等于 2 * 9
 19 是一个质数
 
++ 使用内置 enumerate 函数进行遍历:
 
-
-
+for index, item in enumerate(sequence):
+    process(index, item)
+=>
+>>> sequence = [12, 34, 34, 23, 45, 76, 89]
+>>> for i, j in enumerate(sequence):
+...     print i,j
+->
+0 12
+1 34
+2 34
+3 23
+4 45
+5 76
+6 89
 
 
 
