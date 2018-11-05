@@ -605,11 +605,201 @@ random.sort(key=takeSecond) #指定第二个元素排序
 print '排序列表：', random
 排序列表：[(4, 1), (2, 2), (1, 3), (3, 4)]
 
+- 
+>>> list4=[123,["das","aaa"],234]
+>>> list4
+>>> "aaa" in list4                  #in只能判断一个层次的元素
+False
+>>> "aaa" in list4[1]           #选中列表中的列表进行判断
+True
+>>> list4[1][1]
+'aaa'
+
+- [:-1] 表示从第一个元素遍历到倒数第二个元素
+
+list1 = [1,2,3,4,5,]
+print list1
+#列表截取
+print list1[:-1]
+->
+[1, 2, 3, 4, 5]
+[1, 2, 3, 4]
+
+
+- id(), a 与 a[:]
+列表里 a 与 a[:] 不同。
+我们可以通过函数 id() 来查看：
+a = [1, 2, 3]
+id(a)
+id(a[:])
+
+会发现得到的两个值不同。
+或者直接运行：
+a is a[:]
+返回值将是：False。
+简单来说，a[:] 是创建 a 的一个副本，这样我们在代码中对 a[:] 进行操作后，就不会改变 a 的值了。而若直接对 a 进行操作，那么 a 的值会收到一些操作的影响，如 append() 等。
+
+- 针对列表无法正常输出汉字的解决方法：
+import json
+list_words = [ '你', '我', '他' ]
+print( list_words )                                        # 无法正常显示汉字 ['\xe4\xbd\xa0', '\xe6\x88\x91', '\xe4\xbb\x96']
+print( str(list_words).decode( 'string_escape' ) )         # 正常显示汉字   ['你', '我', '他']
+
+list_words_result = json.dumps( list_words, encoding='UTF-8', ensure_ascii=False )
+print( list_words_result )
+
+
+- remove 和 del 之间的区别
+>>> a=[1,2,3,5,4,2,6]
+>>> a.remove(a[5])
+>>> a
+[1, 3, 5, 4, 2, 6]
+->  remove 移除的是列表中元素的位置
+>>> a=[1,2,3,5,4,2,6]
+>>> del(a[5])
+>>> a
+[1, 2, 3, 5, 4, 6]
+-> 说明 del 删除是按索引来的，索引起始位置为 0。
+
+- 清空列表中的多项空值：
+test = ['a','','b','','c','','']
+test = [i for i in test if i != '']
+print(test)
+-> ['a', 'b', 'c']
+
+- Python 列表切片应用
+s = 'abcdefg'
+#返回从起始位置到索引位置 2 处的字符串切片
+print(s[:3]) # 输出 'abc'
+
+#返回从第三个索引位置到结尾的字符串切片
+print(s[3:]) # 输出 'defg'
+
+#字符串逆序输出
+print(s[::-1]) # 输出 'gfedcba'
+
+#输出从开始位置间隔一个字符组成的字符串
+print(s[::2]) # 输出 'aceg'
+print(range(10)[::2])  # 输出偶数：[0, 2, 4, 6, 8]
+
+#它们也可以相互结合使用。
+#从索引位置 6 到索引位置 2，逆向间隔一个字符
+print(s[6:2:-2]) # 输出'ge'
+s[6:2:1] #''
 
 
 
+5. 元组 Tuple
+元组与列表类似，不同之处在于元组的元素不能修改。
+元组使用小括号，列表使用方括号。
+元组与字符串类似，下标索引从0开始，可以进行截取，组合等。
+元组创建很简单，只需要在括号中添加元素，并使用逗号隔开即可。
+tup1 = ('physics', 'chemistry', 1997, 2000)
+tup2 = (1, 2, 3, 4, 5 )
+tup3 = "a", "b", "c", "d"
+tup1 = (50,)
+
+tup1 = (12, 34.56)
+tup2 = ('abc', 'xyz')
+#以下修改元组元素操作是非法的。
+#tup1[0] = 100
+ 
+#创建一个新的元组
+tup3 = tup1 + tup2
+print tup3
+-> (12, 34.56, 'abc', 'xyz')
+#删除元组
+元组中的元素值是不允许删除的，但我们可以使用del语句来删除整个元组
+tup = ('physics', 'chemistry', 1997, 2000)
+print tup
+del tup
+print "After deleting tup : "
+print tup
+
+#元组索引，截取
+因为元组也是一个序列，所以我们可以访问元组中的指定位置的元素，也可以截取索引中的一段元素
+L = ('spam', 'Spam', 'SPAM!')
+L[1:]	
+('Spam', 'SPAM!')	截取元素
 
 
+#无关闭分隔符
+任意无符号的对象，以逗号隔开，默认为元组
+print 'abc', -4.24e93, 18+6.6j, 'xyz'
+x, y = 1, 2
+print "Value of x , y : ", x,y
+->
+abc -4.24e+93 (18+6.6j) xyz
+Value of x , y : 1 2
+
+#内置函数
+- len(tuple)
+计算元组元素个数。
+
+- tuple( seq )
+>>>tuple([1,2,3,4])
+-> (1, 2, 3, 4)
+>>> tuple({1:2,3:4})    #针对字典 会返回字典的key组成的tuple
+(1, 3)
+>>> tuple((1,2,3,4))    #元组会返回元组自身
+(1, 2, 3, 4)
+
+- 
+aList = [123, 'xyz', 'zara', 'abc'];
+aTuple = tuple(aList) 
+print ("Tuple elements : ", aTuple)
+-> Tuple elements :  (123, 'xyz', 'zara', 'abc')
+
+- 
+>>> tup1 = ("all")
+>>> print tup1    #type(tup1) = str
+-> all 
+输出字符串 all，这是因为括号()既可以表示tuple，又可以表示数学公式中的小括号。
+所以，如果元组只有1个元素，就必须加一个逗号，防止被当作括号运算：
+>>> tup1 = ("all",)
+>>> print tup1
+-> ('all',)
+
+
+####元组与列表的区别，元组它的关键是不可变性。
+如果在程序中以列表的形式传递一个对象的集合，它可能在任何地方改变；
+如果使用元组的话，则不能。
+元组提供了一种完整的约束。
+
+- 切片的方式更新元组
+>>> temp=(1, 2, 4, 5)
+>>> temp=temp[:2]+(3,)+temp[2:]
+>>> temp
+-> (1, 2, 3, 4, 5)
+
+
+- 元组的一级元素不可被修改增加删除但可以修改二级后的。
+如修改元祖中列表，字典等内容
+>>> tu = ("alex", [11, 22, {"k1": 'v1', "k2": ["age", "name"], "k3": (11,22,33)}, 44])
+>>> tu[1][2]["k2"].append("seven")
+>>> print(tu[1][2]["k2"])
+-> ['age', 'name', 'seven']
+
+
+- 切片虽然可以重新组成新的元组，但是要注意截取一个元素时候不能和新的元组相 + 
+>>> a=(1,2,3,4,5,6)
+>>> c=a[1:4]+a[5]    # 报错, a[5] 被当成了整型
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can only concatenate tuple (not "int") to tuple
+
+>>> c=a[1:4]+a[2:4]   # 这样可以
+>>> c
+(2, 3, 4, 3, 4)
+
+
+- 截取的是一个元素
+>>> T = ('aa','bb','cc','dd','ee')
+>>> T = T[0:3]+T[4:]
+>>> print(T)
+('aa', 'bb', 'cc', 'ee')
+T[4] 得到的是字符串 'ee', 而 T[4:] 得到的是新元组 ('ee',)，所以元组拼接时用 T[4] 会报错。
+ps：T[4:4] 获取的值为空。
 
 
 
