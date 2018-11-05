@@ -933,6 +933,66 @@ pop_obj=site.popitem()
 print(pop_obj) -> ('url', 'www.runoob.com')
 print(site) -> {'alexa': 10000, 'name': '\xe8\x8f\x9c\xe9\xb8\x9f\xe6\x95\x99\xe7\xa8\x8b'}
 
+-字典的键可以使用布尔类型的，True 默认代表 1，False 默认代表 0，如果包含 0 或 1 就无法使用布尔类型
+>>> test = {0:"1", 1:"2", True:"3", False:"4"}
+>>> print(test)
+-> {0: '4', 1: '3'}
+没有 0 或 1 的情况下：
+>>> test = {"a":"1", "b" :"2", True:"3", False:"4"}
+>>> print(test)
+-> {'a': '1', True: '3', 'b': '2', False: '4'}
+
+- dict.has_key() 被移除了。改成用 in 或者 not in：
+>>> dict = {'Name': 'Zara', 'Age': 7}
+>>> print ('Height' in dict)
+False
+>>> print ('Height' not in dict)
+True
+
+- 如果直接用 [] 访问，在没有找到对应键的情况下会报错，一个更输出'default'好的替代方案是用内置的 get 方法来取键值，这时候如果不存在也不会报错。>>>test = {'key1':'value1','key2':'value2'}
+>>>test['key3'] 报错：KeyError:'key3'
+>>>test.get('key3') 无输出
+>>>test.get('key3','default') 
+
+
+
+
+
+
+
+
+7.函数
+- return语句[表达式]退出函数，选择性地向调用方返回一个表达式。不带参数值的return语句返回None。
+- 全局变量和局部变量
+total = 0; # 这是一个全局变量
+#可写函数说明
+def sum( arg1, arg2 ):
+   #返回2个参数的和."
+   total = arg1 + arg2; # total在这里是局部变量.
+   print "函数内是局部变量 : ", total
+   return total;
+ 
+#调用sum函数
+sum( 10, 20 );
+print "函数外是全局变量 : ", total
+
+
+全局变量想作用于函数内，需加 global: 1、global---将变量定义为全局变量。可以通过定义为全局变量，实现在函数内部改变变量值。 2、一个global语句可以同时定义多个变量，如 global x, y, z。
+globvar = 0
+def set_globvar_to_one():
+    global globvar    # 使用 global 声明全局变量
+    globvar = 1
+def print_globvar():
+    print(globvar)     # 没有使用 global
+set_globvar_to_one()
+print  globvar        # 输出 1
+print_globvar()       # 输出 1，函数内的 globvar 已经是全局变量
+
+
+
+
+
+
 
 
 
