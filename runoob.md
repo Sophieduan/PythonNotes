@@ -868,6 +868,75 @@ dict = {['Name']: 'Zara', 'Age': 7};
 print "dict['Name']: ", dict['Name'];
 
 
+#字典内置函数&方法
+- len(dict)
+- type(dict)
+- dict.clear() # NA
+- dict.copy() 返回一个字典的浅复制 # NA； 直接赋值和 copy 的区别：  浅拷贝dict2 = dict1: 引用对象； dict3 = dict1.copy()# 深拷贝父对象（一级目录），子对象（二级目录）不拷贝，还是引用
+- dict.fromkeys(seq[, value]) #创建一个新字典，以序列 seq 中元素做字典的键，val 为字典所有键对应的初始值
+Eg :
+seq = ('Google', 'Runoob', 'Taobao')
+dict = dict.fromkeys(seq)
+print "新字典为 : %s" %  str(dict) -> 新字典为 : {'Google': None, 'Taobao': None, 'Runoob': None}
+ 
+dict = dict.fromkeys(seq, 10)
+print "新字典为 : %s" %  str(dict) -> 新字典为 : {'Google': 10, 'Taobao': 10, 'Runoob': 10}
+
+- dict.get(key, default=None) #返回指定键的值，如果值不在字典中返回默认值。
+dict = {'Name': 'Zara', 'Age': 27}
+print "Value : %s" %  dict.get('Age') ->Value : 27
+print "Value : %s" %  dict.get('Sex', "Never") -> Value : Never
+
+- 	dict.has_key(key) #判断键是否存在于字典中，如果键在字典dict里返回true，否则返回false。
+-  dict.items() #以列表返回可遍历的(键, 值) 元组数组。
+dict = {'Google': 'www.google.com', 'Runoob': 'www.runoob.com', 'taobao': 'www.taobao.com'}
+print "字典值 : %s" %  dict.items()
+#遍历字典列表
+for key,values in  dict.items():
+    print key,values
+-> 字典值 : [('Google', 'www.google.com'), ('taobao', 'www.taobao.com'), ('Runoob', 'www.runoob.com')]
+Google www.google.com
+taobao www.taobao.com
+Runoob www.runoob.com
+
+-  dict.keys() #以列表返回一个字典所有的键
+dict = {'Name': 'Zara', 'Age': 7}
+print "Value : %s" %  dict.keys() ->Value : ['Age', 'Name']
+
+
+
+- dict.setdefault(key, default=None) #如果键不存在于字典中，将会添加键并将值设为默认值。
+dict = {'runoob': '菜鸟教程', 'google': 'Google 搜索'}
+print "Value : %s" %  dict.setdefault('runoob', None) -> Value : 菜鸟教程
+print "Value : %s" %  dict.setdefault('Taobao', '淘宝') ->Value : 淘宝
+
+
+-dict.update(dict2) #函数把字典dict2的键/值对更新到dict里。
+dict = {'Name': 'Zara', 'Age': 7}
+dict2 = {'Sex': 'female' }
+dict.update(dict2) 
+print "Value : %s" %   dict -> Value : {'Age': 7, 'Name': 'Zara', 'Sex': 'female'}
+
+- dict.values() # 函数以列表返回字典中的所有值。
+dict = {'Name': 'Zara', 'Age': 7}
+print "Value : %s" %  dict.values() -> Value : [7, 'Zara']
+
+
+- pop(key[,default]) #删除字典给定键 key 及对应的值，返回值为被删除的值。key 值必须给出。 否则，返回 default 值。
+site= {'name': '菜鸟教程', 'alexa': 10000, 'url': 'www.runoob.com'}
+pop_obj=site.pop('name')
+print pop_obj    # 输出 ：菜鸟教程
+
+- popitem() #随机返回并删除字典中的一对键和值。如果字典已经为空，却调用了此方法，就报出KeyError异常。
+site= {'name': '菜鸟教程', 'alexa': 10000, 'url': 'www.runoob.com'}
+pop_obj=site.popitem()
+print(pop_obj) -> ('url', 'www.runoob.com')
+print(site) -> {'alexa': 10000, 'name': '\xe8\x8f\x9c\xe9\xb8\x9f\xe6\x95\x99\xe7\xa8\x8b'}
+
+
+
+
+
 
 
 
