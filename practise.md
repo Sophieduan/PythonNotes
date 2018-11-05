@@ -124,7 +124,7 @@ while True:
 denum = input("输入十进制数:")
 print denum,"(10)",
 binnum = []
-# 二进制数
+#二进制
 while denum > 0:
     binnum.append(str(denum % 2)) # 栈压入
     denum //= 2
@@ -169,7 +169,59 @@ print(trim(str))
 
 
 
-8. 
+8. 取质数
+list.append()
+#输出2到100的质数
+prime = []
+for num in range(2,100):  # 迭代 2 到 100 之间的数字
+   for i in range(2,num): # 根据因子迭代
+      if num%i == 0:      # 确定第一个因子
+         break            # 跳出当前循环
+   else:                  # 循环的 else 部分
+      prime.append(num)
+print prime
+
+
+9. 打印1-9三角形阵列
+for i in range(1,11):
+    for k in range(1,i):
+        print k,
+    print "\n"
+->
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+1 2 3 4 5 6 
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 7 8 
+1 2 3 4 5 6 7 8 9 
+
+
+10.按大小重新排序 ==冒泡排序
+arays = [1,8,2,6,3,9,4]
+for i in range(len(arays)):
+    for j in range(i+1):
+        if arays[i] < arays[j]:
+            # 实现连个变量的互换
+            arays[i],arays[j] = arays[j],arays[i]
+print arays
+-> [1, 2, 3, 4, 6, 8, 9]
+
+
+11.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
