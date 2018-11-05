@@ -16,8 +16,10 @@ print "math.floor(2.6) => ", math.floor(2.6)
 
 #四舍五入
 print "\nround---"
-print "round(2.3) => ", round(2.3)
+print "round(2.3) => ", round(2.3) 
 print "round(2.6) => ", round(2.6)
+2digit精度
+print (round(2.32345,2))
 
 #这三个的返回结果都是浮点型
 print "\n\nNOTE:every result is type of float"
@@ -25,6 +27,7 @@ print "math.ceil(2) => ", math.ceil(2)
 print "math.floor(2) => ", math.floor(2)
 print "round(2) => ", round(2)
 
+#
 
 
 
@@ -368,4 +371,22 @@ print(l)
 
 
 
-17.
+17.字符串大小写转换
+str = "www.runoob.com"
+print(str.upper())          # 把所有字符中的小写字母转换成大写字母
+print(str.lower())          # 把所有字符中的大写字母转换成小写字母
+print(str.capitalize())     # 把第一个字母转化为大写字母，其余小写
+print(str.title())          # 把每个单词的第一个字母转化为大写，其余小写 
+print(str.swapcase())
+
+
+18. Ceasar cipher
+
+
+
+
+
+
+
+
+
